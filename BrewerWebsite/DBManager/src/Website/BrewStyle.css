@@ -1,0 +1,66 @@
+body {
+    background-image: url(pint.jpg);
+}
+h1 {
+    font: 40px arial, sans-serif;
+}
+p {
+    font: 15px arial, sans-serif;
+    color: gold;
+    margin: auto;
+    height: 50px;
+    width: 75%;
+}
+.menubar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: gold;
+    margin: auto;
+    height: 20px;
+    width: 98.5%;
+    border: 3px solid black;
+    border-left: none;
+    border-right: none;
+    padding: 10px;
+    font: 20px arial, sans-serif;
+}
+button {
+    color: black;
+    font-size: 1.00em;
+    height: 20px;
+    width: 100px;
+    background-color: gold;
+    border: none;
+}
+h1 {
+    color: gold;
+    margin: auto;
+    height: 50px;
+    width: 75%;
+}
+form {
+    color: gold;
+    margin: auto;
+    height: 50px;
+    width: 75%;
+    font: 20px arial, sans-serif;
+}
+.image {
+    margin: auto;
+    width: 75%;
+}
+.region {
+    height: 40px;
+}
+.products {
+    margin: auto;
+    height: 50px;
+    width: 75%;
+}
+button.products {
+    text-align: left;
+    margin: auto;
+    height: 50px;
+    width: 50%;
+}
