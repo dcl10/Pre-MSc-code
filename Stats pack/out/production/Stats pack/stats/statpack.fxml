@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="408.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="stats.Controller">
+  <children>
+    <BorderPane prefHeight="408.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <bottom>
+        <Label fx:id="progressLabel" text="Ready">
+          <BorderPane.margin>
+            <Insets bottom="2.0" left="2.0" />
+          </BorderPane.margin>
+        </Label>
+      </bottom>
+      <center>
+        <TabPane fx:id="tabPane" disable="false" focusTraversable="true" prefHeight="200.0" prefWidth="200.0" rotateGraphic="false" tabClosingPolicy="ALL_TABS" visible="true">
+          <tabs>
+            <Tab fx:id="standardDeviationTab" closable="false" disable="false" text="Standard Deviation">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <GridPane alignment="CENTER" gridLinesVisible="false" prefHeight="360.0" prefWidth="600.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+                      <children>
+                        <TextField fx:id="inputField" alignment="CENTER_LEFT" prefWidth="200.0" promptText="Separate values with &quot;, &quot;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField fx:id="outputField" editable="false" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label alignment="CENTER" contentDisplay="LEFT" prefHeight="136.0" prefWidth="300.0" text="Data" textAlignment="CENTER" wrapText="false" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <Label alignment="CENTER" prefHeight="121.0" prefWidth="300.0000999999975" text="Standard Deviation" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                          <children>
+                            <Button mnemonicParsing="false" onAction="#standardDevCalculation" text="Calculate" />
+                            <Button mnemonicParsing="false" onAction="#standardDevClearFields" text="Clear" />
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="296.0" minWidth="10.0" prefWidth="145.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="527.0" minWidth="10.0" prefWidth="455.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="chiSquaredTab" closable="false" disable="false" text="Chi-squared">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <GridPane alignment="CENTER" prefHeight="316.0" prefWidth="598.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
+                      <children>
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                          <children>
+                            <Button id="chiSquaredCalculation" mnemonicParsing="false" onAction="#chiSquaredCalculation" text="Calculate" />
+                            <Button id="chiSquaredClearFields" mnemonicParsing="false" onAction="#chiSquaredClearFields" text="Clear" />
+                          </children>
+                        </HBox>
+                        <Label fx:id="pValueLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="428.0" text="label" textAlignment="CENTER" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="183.0" prefWidth="299.0" text="P-value" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="183.0" prefWidth="299.0" text="DF" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Label id="pValueLabel" fx:id="dfLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="428.0" text="label" textAlignment="CENTER" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="299.0" text="Chi-squared" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <TextField fx:id="chiOutputField" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="298.0" text="Observed" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                          <GridPane.margin>
+                            <Insets />
+                          </GridPane.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="298.0" text="Expected" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <TextField id="chiInputField" fx:id="chiExpectedField" prefWidth="200.0" promptText="Separate values with &quot;, &quot;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField id="chiInputField" fx:id="chiObservedField" prefWidth="200.0" promptText="Separate values with &quot;, &quot;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="157.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="474.0" minWidth="10.0" prefWidth="441.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+          </tabs>
+        </TabPane>
+      </center>
+      <top>
+        <MenuBar>
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save" />
+                <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#clearTab" text="Clear Tab" fx:id="clearTabButton" />
+                <MenuItem mnemonicParsing="false" onAction="#clearAll" text="Clear All Tabs" fx:id="clearAllTabsButton" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</AnchorPane>
